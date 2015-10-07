@@ -1,0 +1,266 @@
+<!-- $Id: article_info.htm 16780 2009-11-09 09:28:30Z sxc_shop $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,validator.js,jquery-1.4.2.js"}
+<!-- start goods form -->
+<div class="tab-div">
+  <div id="tabbar-div">
+    <p>
+     
+      <span
+      class="tab-front" id="general-tab">中奖记录</span>
+      
+      
+    </p>
+  </div>
+
+  <div id="tabbody-div">
+ 
+
+       <form  action="weixin.php" method="post" enctype="multipart/form-data" name="theForm" onsubmit="return validate();" id="general-table">
+       <div class="list-div" id="listDiv">
+
+<table cellspacing='1' cellpadding='3' id='list-table'>
+  <tr  >
+    <th >奖项名</th>
+    <th>sn码</th>
+     <th>获奖时间（发奖时间）</th>
+	 <th>会员名</th>
+     <th>联系人姓名</th>
+       <th>电话号码</th>
+       <th>是否已发奖品</th>
+    <th>操作</th>
+  </tr>
+   {foreach from=$luckyrecord item=list}
+    <tr>
+    <td align="center">{$list.prize} </td>
+    <td align="center"><span>{$list.sn}</span></td>
+    
+    <td align="center">{$list.time}{if $list.sendstutas eq 1} （{$list.sendtime}） {/if}</td>
+    <td align="center">{$list.wecha_id}</td>
+    <td align="center">{$list.wecha_name}</td>
+    <td align="center">{$list.phone}</td>
+    <td align="center">{if $list.sendstutas eq 0}未发奖{elseif $list.sendstutas eq 1}已发奖{/if}</td>
+    <td align="center" nowrap="true"><span>
+     
+     
+       <a href="javascript:void(0)" onclick="send_price({$list.id})" title="发奖"><img src="images/icon_edit.gif" border="0" height="16" width="16" /></a>&nbsp;
+       
+     <!--  --><!--  --></span>
+    </td>
+   </tr>
+    {/foreach}
+     <tr>&nbsp;
+    <td align="right" nowrap="true" colspan="8">      <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+            <div id="turn-page">
+        总计  <span id="totalRecords">{$total_nums}</span>
+        个记录分为 <span id="totalPages">{$total_page}</span>
+        页当前第 <span id="pageCurrent">{$cur_page}</span>
+        页，
+        <span id="page-link">
+          <a href="{$first_page}">第一页</a>
+          <a href="{$pre_page}">上一页</a>
+          <a href="{$next_page}">下一页</a>
+          <a href="{$last_page}">最末页</a>
+         
+      </div>
+</td>
+  </tr>
+</table>
+
+
+</div>
+    </form>
+    
+    
+    
+   
+  </div>
+
+</div>
+<!-- end goods form -->
+<script language="JavaScript">
+
+var articleId = {$article.article_id|default:0};
+var elements  = document.forms['theForm'].elements;
+var sz        = new SelectZone(1, elements['source_select'], elements['target_select'], '');
+
+{literal}
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
+function send_price(id)
+{
+	var url='{$send_url}';
+	if(confirm('你确定想发奖吗'))
+	{
+	  $.post(url,{id:id},function(result)
+	  {
+		  if(result.error==0)
+		  {
+			alert('发奖成功');
+		  }
+		  else
+		  {
+			alert('系统出错');
+		  }
+	  },'json');
+    }
+	
+}
+function validate()
+{
+  var validator = new Validator('theForm');
+  validator.required('title', no_title);
+{/literal}
+{if $article.cat_id >= 0}
+  validator.isNullOption('article_cat',no_cat);
+{/if}
+{literal}
+
+  return validator.passed();
+}
+
+document.getElementById("tabbar-div").onmouseover = function(e)
+{
+    var obj = Utils.srcElement(e);
+
+    if (obj.className == "tab-back")
+    {
+        obj.className = "tab-hover";
+    }
+}
+
+document.getElementById("tabbar-div").onmouseout = function(e)
+{
+    var obj = Utils.srcElement(e);
+
+    if (obj.className == "tab-hover")
+    {
+        obj.className = "tab-back";
+    }
+}
+
+document.getElementById("tabbar-div").onclick = function(e)
+{
+    var obj = Utils.srcElement(e);
+
+    if (obj.className == "tab-front")
+    {
+        return;
+    }
+    else
+    {
+        objTable = obj.id.substring(0, obj.id.lastIndexOf("-")) + "-table";
+
+        var tables = document.getElementsByTagName("form");
+        var spans  = document.getElementsByTagName("span");
+
+        for (i = 0; i < tables.length; i++)
+        {
+            if (tables[i].id == objTable)
+            {
+                tables[i].style.display = (Browser.isIE) ? "block" : "block";
+            }
+            else
+            {
+                tables[i].style.display = "none";
+            }
+        }
+        for (i = 0; spans.length; i++)
+        {
+            if (spans[i].className == "tab-front")
+            {
+                spans[i].className = "tab-back";
+                obj.className = "tab-front";
+                break;
+            }
+        }
+    }
+}
+function confirm_this(url,text){
+	 var i=window.confirm(text);
+	 if(i!=0){
+	  window.location=url;
+	 }
+	 }
+function showNotice(objId)
+{
+    var obj = document.getElementById(objId);
+
+    if (obj)
+    {
+        if (obj.style.display != "block")
+        {
+            obj.style.display = "block";
+        }
+        else
+        {
+            obj.style.display = "none";
+        }
+    }
+}
+
+function searchGoods()
+{
+    var elements  = document.forms['theForm'].elements;
+    var filters   = new Object;
+
+    filters.cat_id = elements['cat_id'].value;
+    filters.brand_id = elements['brand_id'].value;
+    filters.keyword = Utils.trim(elements['keyword'].value);
+
+    sz.loadOptions('get_goods_list', filters);
+}
+{/literal}
+
+/**
+ * 选取上级分类时判断选定的分类是不是底层分类
+ */
+function catChanged()
+{
+  var obj = document.forms['theForm'].elements['article_cat'];
+
+  cat_type = obj.options[obj.selectedIndex].getAttribute('cat_type');
+  if (cat_type == undefined)
+  {
+    cat_type = 1;
+  }
+
+  if ((obj.selectedIndex > 0) && (cat_type == 2 || cat_type == 4))
+  {
+    alert(not_allow_add);
+    obj.selectedIndex = 0;
+    return false;
+  }
+
+  return true;
+}
+
+ 	
+	function del_lottery(index)
+	{
+			
+		if(confirm("确定要删除这条记录??"))
+		{
+			$.post("goldegg.php?act=del_lottery",{"id":index},function(data){
+			
+			if(data=="success")
+			{
+				alert("删除成功");
+				window.history.go(0);
+				$("#"+index).css("display","none");
+			}
+			else
+			{
+				alert("删除失败");	
+			}
+		},"text");
+		
+		}
+				
+	}
+ 
+</script>
+{include file="pagefooter.htm"}

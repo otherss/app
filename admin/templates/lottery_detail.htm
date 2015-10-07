@@ -1,0 +1,397 @@
+<!-- $Id: goods_info.htm 17126 2010-04-23 10:30:26Z liuhui $ -->
+{include file="pageheader2.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,colorselector.js,jquery-1.4.2.js,jquery.poshytip.js,jq.validate.js,jquery.calendar.js"}
+
+
+
+<style>
+  #img_area a{ background:#ccc; padding:5px; text-decoration:none; margin:5px;}
+  #mycalendar
+  {
+  	position: absolute;
+  	left:380px !important;
+	top:250px !important;
+	
+  }
+  
+.datepicker { border-collapse: collapse; border: 2px solid #999; position: absolute; 
+	width:200px;
+}
+.datepicker tr.controls th { height: 22px; font-size: 11px; }
+.datepicker select { font-size: 11px; }
+.datepicker tr.days th { height: 18px; }
+.datepicker tfoot td { height: 18px; text-align: center; text-transform: capitalize; }
+.datepicker th, .datepicker tfoot td { background: #eee; font: 10px/18px Verdana, Arial, Helvetica, sans-serif; }
+.datepicker th span, .datepicker tfoot td span { font-weight: bold; }
+
+.datepicker tbody td { width: 24px; height: 24px; border: 1px solid #ccc; font: 11px/22px Arial, Helvetica, sans-serif; text-align: center; background: #fff; }
+.datepicker tbody td.date { cursor: pointer; }
+.datepicker tbody td.date.over { background-color: #99ffff; }
+.datepicker tbody td.date.chosen { font-weight: bold; background-color: #ccffcc; }
+
+.datepicker tbody tr td { padding:0px; 
+	height:2px;
+	width:5px;
+}
+.datepicker { border-collapse: collapse; border: 2px solid #999; position: absolute; 
+	width:200px;
+}
+.datepicker tr.controls th { height: 22px; font-size: 11px; }
+.datepicker select { font-size: 11px; }
+.datepicker tr.days th { height: 18px; }
+.datepicker tfoot td { height: 18px; text-align: center; text-transform: capitalize; }
+.datepicker th, .datepicker tfoot td { background: #eee; font: 10px/18px Verdana, Arial, Helvetica, sans-serif; }
+.datepicker th span, .datepicker tfoot td span { font-weight: bold; }
+
+.datepicker tbody td { width: 24px; height: 24px; border: 1px solid #ccc; font: 11px/22px Arial, Helvetica, sans-serif; text-align: center; background: #fff; }
+.datepicker tbody td.date { cursor: pointer; }
+.datepicker tbody td.date.over { background-color: #99ffff; }
+.datepicker tbody td.date.chosen { font-weight: bold; background-color: #ccffcc; }
+
+.datepicker tbody tr td { padding:0px; 
+	height:2px;
+	width:5px;
+}
+.datepicker th{
+text-align:center;
+}
+
+</style>
+
+<script language="JavaScript">
+ 	
+</script>
+
+<!-- start goods form -->
+<div class="tab-div">
+    <!-- tab bar -->
+    <div class="tab-div">
+<div id="tabbar-div">
+    <p>
+        <span class="tab-front" id="one-table">{$title}</span>
+    </p>
+</div>
+<div id="tabbody-div">
+<form enctype="multipart/form-data" action="lottery.php" method="post" type="validate" name="theForm" >
+<!-- 通用信息 -->
+<table width="90%" id="one-table" align="center">
+	<tr>
+		<td colspan=2>
+		活动开始内容	
+		</td>
+	
+	</tr>
+ <!--   <tr>
+       <td class="label">关键词：</td>
+       <td>
+           <input type="text" id="keyword" name="keyword" value="keyword" style="float:left;color:;" size="30" valType="required" msg="<font color=red>　　关键词不能为空</font>" />
+            <span class="require-field">*</span>
+       </td>
+    </tr>
+	-->
+	<tr>
+       <td class="label">活动名称：</td>
+       <td>
+           <input  type="text" id="title"  name="title" value="{$lottery_detail.title}" style="float:left;color:;" size="30" valType="required" msg="<font color=red>　　活动名称不能为空</font>"/>
+            <span class="require-field">*</span>
+       </td>
+    </tr>
+	<tr>
+       <td class="label">兑奖信息：</td>
+       <td>
+           <input  type="text" name="txt" id="txt" value="{$lottery_detail.txt}" style="float:left;color:;" size="30" valType="required" msg="<font color=red>　　兑奖信息不能为空</font>"/>
+            <span class="require-field">*</span>
+       </td>
+    </tr>
+	<tr>
+       <td class="label">中奖提示：</td>
+       <td>
+           <input  type="text" name="sttxt" id="sttxt" value="{$lottery_detail.sttxt}" style="float:left;color:;" size="30" valType="required" msg="<font color=red>　　中奖不能为空</font>"/>
+            <span class="require-field">*</span>
+       </td>
+    </tr>
+	<tr>
+       <td class="label">活动时间：</td>
+       <td>
+           <input  type="text" readonly="readonly" name="statdate" id="statdate" value="{$lottery_detail.statdate}" style="float:left;" size="10" valType="required" />
+         　　　　	<input  type="text" readonly="readonly" name="enddate" id="enddate" value="{$lottery_detail.enddate}" style="float:left;" size="10" valType="required" />
+            　<span class="require-field">*</span>
+       </td>
+    </tr>
+	<tr>
+       <td class="label">活动说明：</td>
+       <td>
+           <input  type="text" name="info" id="info" value="{$lottery_detail.info}" style="float:left;color:;" size="30" />
+            
+       </td>
+    </tr>
+	<tr>
+       <td class="label">重复抽奖回复：</td>
+       <td>
+           <input  type="text" name="aginfo"  id="aginfo" value="{$lottery_detail.aginfo}" style="float:left;color:;" size="30" />
+            
+       </td>
+    </tr>
+      <tr>
+		<td colspan=2>
+		活动结束内容	
+		</td>
+	
+	</tr>
+	<tr>
+       <td class="label">活动结束公告主题：</td>
+       <td>
+           <input  type="text" name="endtitle" id="endtitle" value="{$lottery_detail.endtite}" style="float:left;color:;" size="30" />
+            <span class="require-field">*</span>
+       </td>
+    </tr>
+	<tr>
+       <td class="label">活动结束说明：</td>
+       <td>
+           <input  type="text" name="endinfo" id="endinfo" value="{$lottery_detail.endinfo}" style="float:left;color:;" size="30" />
+            
+       </td>
+    </tr>
+	<tr>
+		<td colspan=2>
+		奖项设置	
+		</td>
+	
+	</tr>
+	<tr>
+       <td class="label">一等奖奖品设置：</td>
+       <td>
+           <input  type="text" name="fist" id="first" value="{$lottery_detail.fist}" style="float:left;color:;" size="30" />
+             <span class="require-field">*</span>
+       </td>
+    </tr>	
+	<tr>
+       <td class="label">一等奖奖品数量：</td>
+       <td>
+           <input  type="text" name="fistnums" id="fistnums" {if $lottery_detail.fistnums}value="{$lottery_detail.fistnums}" {else}value="0"{/if}style="float:left;color:;" size="30"
+           valType="NUMBER" msg="<font color=red>　　　请输入数字</font>" /><span class="require-field">*</span>
+       </td>
+    </tr>	
+		
+	<tr>
+       <td class="label">二等奖奖品设置：</td>
+       <td>
+           <input  type="text" name="second" id="second" value="{$lottery_detail.second}" style="float:left;color:;" size="30" />
+            
+       </td>
+    </tr>	
+	<tr>
+       <td class="label">二等奖奖品数量：</td>
+       <td>
+           <input  type="text" name="secondnums" id="secondnums" {if $lottery_detail.secondnums}value="{$lottery_detail.secondnums}"{else}value="0"{/if} style="float:left;color:;" size="30" 
+            valType="NUMBER" msg="<font color=red>　　　请输入数字</font>" />
+       </td>
+    </tr>	
+		
+	<tr>
+       <td class="label">三等奖奖品设置：</td>
+       <td>
+           <input  type="text" name="third" id="third" value="{$lottery_detail.third}" style="float:left;color:;" size="30" />
+            
+       </td>
+    </tr>	
+	<tr>
+       <td class="label">三等奖奖品数量：</td>
+       <td>
+           <input  type="text" name="thirdnums" id="thirdnums" {if $lottery_detail.thirdnums}value="{$lottery_detail.thirdnums}"{else}value="0"{/if} style="float:left;color:;" size="30" 
+            valType="NUMBER" msg="<font color=red>　　　请输入数字</font>" />
+       </td>
+    </tr>
+	
+	<tr>
+       <td class="label">预计活动的人数：</td>
+       <td>
+           <input  type="text" name="allpeople" id="allpeople" value="{$lottery_detail.allpeople}" style="float:left;color:;" size="30" 
+		   valType="NUMBER" msg="<font color=red>　　　请输入数字</font>" />
+		   <br>
+		   <br>
+		   <span class="require-field">预估活动人数直接影响抽奖概率：中奖概率 = 奖品总数/(预估活动人数*每人累积抽奖次数) 如果要确保任何时候都100%中奖建议设置为1人参加!如果要确保任何时候都100%中奖建议设置为1人参加!并且奖项只设置一等奖.</span>
+       </td>
+    </tr>
+	
+	<tr>
+       <td class="label">每人累积允许抽奖次数：</td>
+       <td>
+           <input  type="text" name="canrqnums" id="canrqnums" value="{$lottery_detail.canrqnums}" style="float:left;color:;" size="30" 
+		  valType="NUMBER" msg="<font color=red>　　　请输入数字</font>" />
+             <span class="require-field">非0正整数</span>
+       </td>
+    </tr>
+	
+	<tr>
+       <td class="label">每人每天允许抽奖次数：</td>
+       <td>
+           <input  type="text" name="daynums" id="daynums" value="{$lottery_detail.daynums}" style="float:left;color:;" size="30" 
+		   valType="NUMBER" msg="<font color=red>　　　请输入数字</font>" />
+             <span class="require-field">非0正整数且务必小于累积允许抽奖次数</span>
+       </td>
+    </tr>
+   	
+	<tr>
+       <td class="label">活动状态：</td>
+       <td id="radio">
+           <input type="radio" value=1  id="open"  {if $lottery_detail.status eq 1 }  checked="checked"  {/if}  name="status"  />开启
+		    <input type="radio" value=0 id="close"  {if $lottery_detail.status eq 0 }  checked="checked"  {/if}  name="status"/>关闭&nbsp;&nbsp;&nbsp;<span style="color:red">(tips:当该活动设置为开始时，其他活动将自动设置为关闭状态)</span>
+       </td>
+    </tr>
+   
+               </table>
+                  
+          
+
+             <div style="width:400px; margin:0 auto; display:none" id='img_control'><input id="add_img"  {if $act eq 'detail_send'}disabled="disabled"{/if} type="button" value="添加新的图文信息"/><input id="cancel_img"  {if $act eq 'detail_send'}disabled="disabled"{/if} type="button" value="删掉图文信息"/></div>
+            
+          </tr> 
+</div>
+</div>      
+
+
+        <div class="button-div">
+        
+         
+          <input type="hidden" name="id" id="id" value="{$lottery_detail.id}" />
+		 
+		 <input type="hidden" name="type" id="detail" value="{$type}" />
+		   <input type="hidden" name="act" id="detail" value="{$flag}" />
+		   <input type="hidden" name="wx_id" id="detail" value="{$wx_id}" />
+          <input  type="submit" value="保存" class="button" />
+          <input type="reset" value="重置" class="button" />
+        </div>
+      
+    
+</div>
+</form>
+ <script language="JavaScript">
+// 	var status=0;
+// 	 {if $lottery_detail.status eq 1 }  status=1;  {/if}
+//	
+// 	function getChecked(radio)
+//		{
+//		
+//			
+//			status=$("#"+radio.id).val();
+//			
+//			
+//		}
+	
+ 	onload=function()
+	{
+		
+		
+		
+		$('#statdate').simpleDatepicker({
+	    chosendate: '2013-01-01',
+	    startdate: '2013-01-01',
+	    enddate: '2020-01-01',
+	    y:40
+		});
+		
+		$('#enddate').simpleDatepicker({
+	    chosendate: '2013-01-01',
+	    startdate: '2013-01-01',
+	    enddate: '2020-01-01',
+	    y:40
+		});
+		
+//{literal}
+//	 	$("#submit").click(function()
+//		{
+//			var flag=true;
+//			//alert($("[valType]").length);
+//			 $.each($("[valType]"),function(i, n) {
+//				
+//						 
+//				if($(n).attr("valType")=='required') {//对不能为空的文本框进行验证
+//					if($(n).val()=='') {
+//					//显示tips			
+//					
+//					flag=false;
+//					}
+//				}
+//				else if($(n).attr("valType")=='OTHER') {//对自定义的文本框进行验证
+//					if(!($(this).val()!=''&&$.Validator.match({data:$(this).val(), rule:$(this).attr('valType'), regString:$(this).attr('regString')}))) {
+//						
+//						flag=false;
+//					}
+//				}
+//				else {//对使用已定义规则的文本框进行验证			
+//					if(!($(this).val()!=''&&$.Validator.match({data:$(this).val(), rule:$(this).attr('valType')}))) {
+//						
+//						flag=false;
+//					}
+//				}
+//			 });
+//		     if(flag==false)
+//			 {
+//			 	alert("输入有误!!");
+//				return false;
+//			 }
+//	 
+//			if(confirm("确定保存??"))
+//			{
+//			var keyword=$("#keyword").val();
+//			var title=$("#title").val();
+//			var txt=$("#txt").val();
+//			var sttxt=$("#sttxt").val();
+//			var statdate=$("#statdate").val();
+//			var enddate=$("#enddate").val();
+//			var info=$("#info").val();
+//			var aginfo=$("#aginfo").val();
+//			var endtitle=$("#endtitle").val();
+//			var endinfo=$("#endinfo").val();
+//			var fist=$("#first").val();
+//			var fistnums=$("#fistnums").val();
+//			var second=$("#second").val();
+//			var secondnums=$("#secondnums").val();
+//			var third=$("#third").val();
+//			var thirdnums=$("#thirdnums").val();
+//			var canrqnums=$("#canrqnums").val();
+//			var allpeople=$("#allpeople").val();
+//			
+//			
+//			if($("#detail").val()=="edit_lottery_detail")
+//			{
+//					var id=$("#id").val();
+//					$.post("weixin.php?act=edit_lottery_detail",{"id":id,"keyword":keyword,"title":title,"txt":txt,"sttxt":sttxt,"statdate":statdate,"enddate":enddate,"info":info,"aginfo":aginfo,"endtitle":endtitle,"endinfo":endinfo,"fist":fist,"fistnums":fistnums,"second":second,"secondnums":secondnums,"third":third,"thirdnums":thirdnums,"canrqnums":canrqnums,"allpeople":allpeople,"status":status},function(data){
+//					
+//					if(data=="success")
+//					{
+//						alert("更新成功");
+//					}
+//					else
+//					{
+//						alert("更新失败");	
+//					}
+//				},"text");
+//			
+//			}
+//			else{
+//				
+//				$.post("weixin.php?act=add_lottery_detail",{"keyword":keyword,"title":title,"txt":txt,"sttxt":sttxt,"statdate":statdate,"enddate":enddate,"info":info,"aginfo":aginfo,"endtitle":endtitle,"endinfo":endinfo,"fist":fist,"fistnums":fistnums,"second":second,"secondnums":secondnums,"third":third,"thirdnums":thirdnums,"canrqnums":canrqnums,"allpeople":allpeople,"status":status},function(data){
+//					
+//					if(data=="success")
+//					{
+//						alert("添加成功");
+//					}
+//					else
+//					{
+//						alert("添加失败");	
+//					}
+//				},"text");
+//			}
+//			}
+//			
+//			
+//			
+//		});
+	}
+//	{/literal}
+ </script>
+
+
+{include file="pagefooter.htm"}

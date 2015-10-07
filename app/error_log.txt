@@ -1,0 +1,75 @@
+[23-May-2015 14:18:22 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:18:22 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:18:22 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:18:22 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:18:34 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:18:34 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:18:34 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:18:34 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:18:38 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:18:38 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:18:38 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:18:38 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:19:11 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:19:11 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:19:11 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:19:11 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:20:46 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:20:46 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 101 and defined in E:\www\xiaomi\app\AppcanPush.php on line 118
+[23-May-2015 14:20:46 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:20:46 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 127
+[23-May-2015 14:22:27 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:22:27 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:22:27 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:22:27 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:22:30 PRC] PHP Notice:  Undefined variable: appcan_token in E:\www\xiaomi\app\AppcanPush.php on line 169
+[23-May-2015 14:22:37 PRC] PHP Notice:  Undefined variable: appcan_token in E:\www\xiaomi\app\AppcanPush.php on line 169
+[23-May-2015 14:23:05 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:23:05 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:23:05 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:23:05 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:25:32 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:25:32 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:25:32 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:25:32 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:27:19 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:27:19 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:27:19 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:27:19 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:28:04 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:28:04 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:28:04 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:28:04 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:28:18 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:28:18 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:28:18 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:28:18 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:28:18 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:28:18 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:28:18 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:28:18 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:29:04 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:29:04 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:29:04 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:29:04 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:30:44 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:30:44 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:30:44 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:30:44 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:32:51 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:32:51 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:32:51 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:32:51 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:33:10 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:33:10 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 102 and defined in E:\www\xiaomi\app\AppcanPush.php on line 119
+[23-May-2015 14:33:10 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:33:10 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 128
+[23-May-2015 14:37:39 PRC] PHP Notice:  Undefined index: appcan_cookies in E:\www\xiaomi\app\AppcanPush.php on line 14
+[23-May-2015 14:37:39 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 107 and defined in E:\www\xiaomi\app\AppcanPush.php on line 124
+[23-May-2015 14:37:39 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 107 and defined in E:\www\xiaomi\app\AppcanPush.php on line 124
+[23-May-2015 14:37:39 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 133
+[23-May-2015 14:37:39 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 133
+[23-May-2015 14:39:03 PRC] PHP Warning:  Missing argument 2 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 107 and defined in E:\www\xiaomi\app\AppcanPush.php on line 124
+[23-May-2015 14:39:03 PRC] PHP Warning:  Missing argument 3 for GetUserListByPlatForm(), called in E:\www\xiaomi\app\AppcanPush.php on line 107 and defined in E:\www\xiaomi\app\AppcanPush.php on line 124
+[23-May-2015 14:39:03 PRC] PHP Notice:  Undefined variable: pageNo in E:\www\xiaomi\app\AppcanPush.php on line 133
+[23-May-2015 14:39:03 PRC] PHP Notice:  Undefined variable: pageSize in E:\www\xiaomi\app\AppcanPush.php on line 133

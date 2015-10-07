@@ -1,0 +1,65 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 订单搜索 -->
+
+
+<!-- 订单列表 -->
+<form method="post" action="order.php?act=operate" name="listForm" onsubmit="return check()">
+  <div class="list-div" id="listDiv">
+{/if}
+
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th>
+      分享主题
+    </th>
+	<td valign="top" align="center" nowrap="nowrap">{$share.title}</td>
+	</tr>
+	<tr>
+    <th>
+   分享心得 	
+    </th>
+	 <td valign="top" align="center" nowrap="nowrap">{$share.msg}</td>
+	</tr>
+	<tr>
+    <th>分享图文</th>
+	<td align="center" valign="top">
+    	{$share.msg1}
+		<br>
+		<img width="700px" src="{$share.pic1}">
+		<br>
+		{$share.msg2}
+		<br><img width="700px" src="{$share.pic2}">
+		<br>
+		{$share.msg3}
+		<br><img width="700px" src="{$share.pic3}">
+		</td>
+	</tr>
+	<tr>
+    <th>点赞数</th>
+	<td align="center" valign="top" nowrap="nowrap">{$share.praise_nums}</td>
+    </tr>
+	<tr>
+    <th>评论数</th>
+	<td align="center"  nowrap="nowrap">{$share.comment_nums}</td>
+	</tr>
+	
+  <tr>
+  
+  
+ 
+</table>
+
+
+
+{if $full_page}
+  </div>
+  <div>
+    <input name="batch" type="hidden" value="1" />
+    <input name="order_id" type="hidden" value="" />
+  </div>
+</form>
+
+{include file="pagefooter.htm"}
+{/if}

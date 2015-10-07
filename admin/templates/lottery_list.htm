@@ -1,0 +1,83 @@
+<!-- $Id: article_info.htm 16780 2009-11-09 09:28:30Z sxc_shop $ -->
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,selectzone.js,validator.js,jquery-1.4.2.js"}
+<!-- start goods form -->
+<div class="tab-div">
+  <div id="tabbar-div">
+    <p>
+	  
+    </p>
+  </div>
+
+  <div id="tabbody-div">
+  	
+  	<form method="post" action="lottery.php" id="prize-table"  >
+     <div class="list-div" id="listDiv">
+
+<table cellspacing='1' cellpadding='3' id='list-table'>
+  <tr>
+    <th>序号</th>
+    <th>活动名称</th>
+ <!--      <th>关键词</th> -->
+    <th>开启状态</th>
+     <th>中奖人数</th>
+    <th>创建时间</th>
+    <th>操作</th>
+  </tr>
+   {foreach from=$lottery item=list}
+    <tr id="{$list.id}">
+    <td class="first-cell">
+    	{$list.id}
+    </td>
+    <td >
+    <span >{$list.title} </span></td>
+ <!--   <td align="center"><span>{$list.keyword}</span></td> -->
+    <td align="left"><span>{if $list.status eq 1}开启{else}关闭{/if}</span></td>
+    <td align="center">{$list.lucknums}</td>
+    <td align="center"><span>{$list.createtime}</span></td>
+    
+   
+    <td align="center" nowrap="true"><span>
+     <a href="lottery.php?act=lottery_record&lid={$list.id}" title="中奖记录">中奖记录</a>&nbsp;
+      <a href="lottery.php?act=edit_lottery&id={$list.id}" title="编辑">编辑</a>&nbsp;
+      <a href="/lottery2.php?act=index&id={$list.id}" title="编辑" target="_blank">试玩</a>&nbsp;
+     <!--  --><a href="javascript:del_lottery({$list.id})" id="del_lottery"  title="移除">移除</a><!--  --></span>
+    </td>
+   </tr>
+    {/foreach}
+    
+</table>
+
+
+</div>
+
+
+ 
+    </form>
+ <script>
+ 	
+	function del_lottery(index)
+	{
+			
+		if(confirm("确定要删除这条记录??"))
+		{
+			$.post("lottery.php?act=del_lottery",{"id":index},function(data){
+			
+			if(data=="success")
+			{
+				alert("删除成功");
+				$("#"+index).css("display","none");
+			}
+			else
+			{
+				alert("删除失败");	
+			}
+		},"text");
+		
+		}
+				
+	}
+ </script>
+   
+ 
+{include file="pagefooter.htm"}

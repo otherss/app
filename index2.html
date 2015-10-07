@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Ajax异步上传图片</title>
+<script src="js/jquery-1.4.2.min.js" language="JavaScript" type="text/javascript"></script>
+<script src="js/jquery-form.js" language="JavaScript" type="text/javascript"></script>
+<script type="text/javascript">
+function sky_upfiles(){
+    var messtxt;
+ $("#sky_upform").ajaxSubmit({
+                             //   dataType:'script',
+                                type:'post',
+                                url: "doupfiles.php",    
+                                beforeSubmit: function(){
+                                    $("#sky_txt").html("图片上传中...");
+                                },
+                                success: function(data){        
+                                    if(data=="1"){
+                                    messtxt = "上传成功！";
+                                    }else if(data=="-1"){
+                                    messtxt = "文件超过规定大小！";
+                                    }else if(data=="-2"){
+                                    messtxt = "文件类型不符!";
+                                    }else if(data=="-3"){
+                                    messtxt = "移动文件出错!";
+                                    }else{
+                                    messtxt = data;
+                                    }
+                                    $("#sky_txt").html(messtxt); 
+									 $("#img").attr('src',messtxt); 
+									      
+                                    //$("#sky_txt").append(data);
+                                },
+                                resetForm: false,
+                                clearForm: false
+                        });
+                        //$("#upimgform").submit();
+}
+        </script>
+		<style type="text/css">
+#preview{width:100px;height:100px;border:1px solid #000;overflow:hidden;}
+#imghead {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);}
+
+
+input{ vertical-align:middle; margin:0; padding:0}
+.file-box{ position:relative;width:340px}
+.txt{ height:22px; border:1px solid #cdcdcd; width:180px;}
+.btn{ background-color:#FFF; border:1px solid #CDCDCD;height:200px; width:200px;}
+.file{ position:absolute; top:0; right:80px; height:200px; filter:alpha(opacity:0);opacity: 0;width:200px }
+</style>
+</head>
+<body>
+<br />
+<fieldset style="width:97%">
+  <legend>上传文件</legend>
+    <form enctype="multipart/form-data" id="sky_upform" name="sky_upform" action="" method="post">
+   		<div class="file-box">
+        <input name="upfile" id="upfile" class="file" maxlength="20" size="40" type="file" value="" onchange="sky_upfiles()" />
+        <img id="img" class='btn' src='add.png'  />
+	      </div>  
+    </form>
+      
+</fieldset>
+	  	
+	
+	
+</body>
+</html>

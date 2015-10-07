@@ -1,0 +1,157 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+<!-- 订单搜索 -->
+<div class="form-div">
+  <form action="javascript:searchOrder()" name="searchForm">
+    <img src="images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+    订单sn号 <input name="order_sn" type="text" id="order_sn" size="15">
+    
+   
+    <input type="submit" value="{$lang.button_search}" class="button" />
+    <a href="share.php?act=share_list&status=1">未审核</a>
+    <a href="share.php?act=share_list&status=2">审核通过</a>
+    <a href="share.php?act=share_list&status=3">审核未通过</a>
+    <a href="share.php?act=share_list&status=0">不限</a>
+    
+  </form>
+</div>
+
+<!-- 订单列表 -->
+<form method="post" action="share.php" name="listForm" onsubmit="return check()">
+  <div class="list-div" id="listDiv">
+{/if}
+
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th>
+    	 <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox">
+      <a href="javascript:listTable.sort('id', 'DESC'); ">序号</a>
+    </th>
+    <th>
+      订单sn号
+    </th>
+    <th><a href="javascript:listTable.sort('add_time', 'DESC'); ">晒单时间</a>{$sort_order_time}</th>
+    <th>会员名</th>
+    <th>商品id</th>
+    <th>分享内容</th>
+    
+    <th>状态</th>
+    <th>操作</th>
+  <tr>
+  {foreach from=$order_list item=order key=okey}
+  <tr>
+  	 <td valign="top" align="center" nowrap="nowrap">
+  	 	<input value="{$order.id}" name="checkboxes[]" type="checkbox">{$order.id}</td>
+    <td valign="top" align="center" nowrap="nowrap"><a href="order.php?act=info&order_id={$order.id}" id="order_{$okey}">{$order.order_sn}</a></td>
+    <td valign="top" align="center" nowrap="nowrap">{$order.short_order_time}</td>
+    <td align="center" valign="top">{$order.user_name}</td>
+    <td align="center" valign="top">{$order.gid}</td>
+    <td align="center" valign="top" nowrap="nowrap">{$order.msg}</td>
+    
+    <td align="center"  nowrap="nowrap">{$order.status}</td>
+    <td align="center"   nowrap="nowrap">
+    	{$order.oper}
+     <a href="share.php?act=info&id={$order.id}">查看</a>
+    
+     <a href="javascript:if(confirm('确定删除？'))window.location.href='share.php?act=del&id={$order.id}&order_id={$order.order_id}';" >{$lang.remove}</a>
+    
+    </td>
+  </tr>
+  {/foreach}
+</table>
+ <table cellpadding="4" cellspacing="0">
+    <tr>
+      <td>
+      <div>
+      <select name="sel_action">
+        <option value="remove">移除</option>
+        <option value="reset">重置为未审核</option>
+        <option value="allow">审核通过</option>
+        <option value="deny">审核不通过</option>
+      </select>
+      <input type="hidden" name="act" value="batch" />
+      <input type="submit" name="drop" id="btnSubmit" value="{$lang.button_submit}" class="button" disabled="true" /></div></td>
+      <td align="right">{include file="page.htm"}</td>
+    </tr>
+  </table>
+
+
+{if $full_page}
+  </div>
+  <div>
+   
+   
+  </div>
+</form>
+<script language="JavaScript">
+listTable.recordCount = {$record_count};
+listTable.pageCount = {$page_count};
+
+{foreach from=$filter item=item key=key}
+listTable.filter.{$key} = '{$item}';
+{/foreach}
+{literal}
+
+    onload = function()
+    {
+        // 开始检查订单
+        startCheckOrder();
+    }
+
+    /**
+     * 搜索订单
+     */
+    function searchOrder()
+    {
+        listTable.filter['order_sn'] = Utils.trim(document.forms['searchForm'].elements['order_sn'].value);
+        
+       
+        listTable.filter['page'] = 1;
+        listTable.loadList();
+    }
+
+    function check()
+    {
+      var snArray = new Array();
+      var eles = document.forms['listForm'].elements;
+      for (var i=0; i<eles.length; i++)
+      {
+        if (eles[i].tagName == 'INPUT' && eles[i].type == 'checkbox' && eles[i].checked && eles[i].value != 'on')
+        {
+          snArray.push(eles[i].value);
+        }
+      }
+      if (snArray.length == 0)
+      {
+        return false;
+      }
+      else
+      {
+        eles['order_id'].value = snArray.toString();
+        return true;
+      }
+    }
+   
+   
+    /**
+     * 浏览器兼容式绑定Onload事件
+     *
+     */
+    if (Browser.isIE)
+    {
+        window.attachEvent("onload", bind_order_event);
+    }
+    else
+    {
+        window.addEventListener("load", bind_order_event, false);
+    }
+
+  
+
+    
+</script>
+{/literal}
+
+{include file="pagefooter.htm"}
+{/if}
