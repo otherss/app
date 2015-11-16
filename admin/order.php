@@ -43,8 +43,8 @@ if ($_REQUEST['act'] == 'order_query')
     $smarty->assign('ss_list', get_status_list('shipping'));
 
     /* 模板赋值 */
-    $smarty->assign('ur_here', $_LANG['03_order_query']);
-    $smarty->assign('action_link', array('href' => 'order.php?act=list', 'text' => $_LANG['02_order_list']));
+//     $smarty->assign('ur_here', $_LANG['03_order_query']);
+//     $smarty->assign('action_link', array('href' => 'order.php?act=list', 'text' => $_LANG['02_order_list']));
 
     /* 显示模板 */
     assign_query_info();
@@ -61,8 +61,8 @@ elseif ($_REQUEST['act'] == 'list')
     admin_priv('order_view');
 
     /* 模板赋值 */
-    $smarty->assign('ur_here', $_LANG['02_order_list']);
-    $smarty->assign('action_link', array('href' => 'order.php?act=order_query', 'text' => $_LANG['03_order_query']));
+//     $smarty->assign('ur_here', $_LANG['02_order_list']);
+//     $smarty->assign('action_link', array('href' => 'order.php?act=order_query', 'text' => $_LANG['03_order_query']));
 
     $smarty->assign('status_list', $_LANG['cs']);   // 订单状态
 
@@ -4990,7 +4990,13 @@ function order_list()
         {
             $where .= " AND o.add_time <= '$filter[end_time]'";
         }
-
+        
+        
+        
+        $type = 'order_list';
+        
+        $where.= get_admin_storage($type);
+        
         //综合状态
         switch($filter['composite_status'])
         {
@@ -5750,7 +5756,10 @@ function delivery_list()
         {
             $where .= " AND suppliers_id = '" . $admin_info['suppliers_id'] . "' ";
         }
-
+        
+        $type = 'delivery_list';
+        
+        $where.= get_admin_storage($type);
         /* 分页大小 */
         $filter['page'] = empty($_REQUEST['page']) || (intval($_REQUEST['page']) <= 0) ? 1 : intval($_REQUEST['page']);
 

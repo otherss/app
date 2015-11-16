@@ -84,7 +84,7 @@ require(ROOT_PATH . 'includes/lib_main.php');
 require(ROOT_PATH . 'includes/lib_insert.php');
 require(ROOT_PATH . 'includes/lib_goods.php');
 require(ROOT_PATH . 'includes/lib_article.php');
-require(ROOT_PATH . 'themes/xm2013/init.php');
+
 
 
 /* 对用户传入的变量进行转义操作。*/

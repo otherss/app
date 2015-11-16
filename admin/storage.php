@@ -261,7 +261,13 @@ function get_storage_list()
 	$filter['record_count'] = $GLOBALS['db']->getOne($sql);
 	$filter = page_and_size($filter);
 	/* 获活动数据 */
-	$sql = "SELECT store_status,store_name,id FROM " . $GLOBALS['ecs']->table('storage')." LIMIT ". $filter['start'] .", " . $filter['page_size'];
+	
+	$type = 'storage_list';
+	
+	$where = " WHERE 1=1 ";
+	$where.= get_admin_storage($type);
+	
+	$sql = "SELECT store_status,store_name,id FROM " . $GLOBALS['ecs']->table('storage').$where." LIMIT ". $filter['start'] .", " . $filter['page_size'];
 	$filter['keywords'] = stripslashes($filter['keywords']);
 	set_filter($filter, $sql);
 	$row = $GLOBALS['db']->getAll($sql);

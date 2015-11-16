@@ -17,8 +17,9 @@
       <a href="javascript:listTable.sort('goods_id'); "><?php echo $this->_var['lang']['record_id']; ?></a><?php echo $this->_var['sort_goods_id']; ?>
     </th>
     <th><a href="javascript:listTable.sort('goods_name'); ">仓库名称</a><?php echo $this->_var['sort_goods_name']; ?></th>
+	<!--
      <th><a href="javascript:listTable.sort('goods_name'); ">仓库状态</a><?php echo $this->_var['sort_goods_name']; ?></th>
-   
+   	-->
     <th><?php echo $this->_var['lang']['handler']; ?></th>
   <tr>
   <?php $_from = $this->_var['pzd_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods');if (count($_from)):
@@ -27,7 +28,9 @@
   <tr>
     <td><?php echo $this->_var['goods']['id']; ?></td>
     <td class="first-cell" ><span ><?php echo htmlspecialchars($this->_var['goods']['store_name']); ?></span></td>
+	<!--
     <td class="first-cell" ><span ><img src="images/<?php if ($this->_var['goods']['store_status'] == 1): ?>yes<?php else: ?>no<?php endif; ?>.gif" /></span></td>
+		-->
     <td align="center">
      
       <a href="storage.php?act=edit&id=<?php echo $this->_var['goods']['id']; ?>" title="<?php echo $this->_var['lang']['edit']; ?>">编辑仓库</a>

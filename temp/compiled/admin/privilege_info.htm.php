@@ -101,6 +101,18 @@
       </table></td>
   </tr> -->
   <?php endif; ?>
+  
+  <tr>
+  <td class="label">仓库</td>
+  <td >
+  <?php $_from = $this->_var['storage_list']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'storage');if (count($_from)):
+    foreach ($_from AS $this->_var['storage']):
+?> 
+   <input type="checkbox" name="storage[]" value="<?php echo $this->_var['storage']['id']; ?>"  <?php if ($this->_var['storage']['check'] == 1): ?> checked <?php endif; ?>    /><?php echo $this->_var['storage']['store_name']; ?>
+  <?php endforeach; endif; unset($_from); ?><?php $this->pop_vars();; ?>
+  </td>
+  </tr>
+  
   <tr>
     <td colspan="2" align="center">
       <input type="submit" value="<?php echo $this->_var['lang']['button_submit']; ?>" class="button" />&nbsp;&nbsp;&nbsp;

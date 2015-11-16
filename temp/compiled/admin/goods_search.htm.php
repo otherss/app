@@ -9,10 +9,10 @@
    <!--  <select name="brand_id"><option value="0"><?php echo $this->_var['lang']['goods_brand']; ?></option><?php echo $this->html_options(array('options'=>$this->_var['brand_list'])); ?></select> -->
 	<input type="hidden" value="0" name="brand_id">
     <!-- 推荐 -->
-    <!-- <select name="intro_type"><option value="0"><?php echo $this->_var['lang']['intro_type']; ?></option><?php echo $this->html_options(array('options'=>$this->_var['intro_list'],'selected'=>$_GET['intro_type'])); ?></select> -->
-     
+     <select name="intro_type"><option value="0"><?php echo $this->_var['lang']['intro_type']; ?></option><?php echo $this->html_options(array('options'=>$this->_var['intro_list'],'selected'=>$_GET['intro_type'])); ?></select> 
+     <!--
 	 <select name="intro_type"><option value="0">全部</option><option value="is_best">精品</option><option value="is_hot">热销</option></select>
-	 
+	 -->
 	 <?php if ($this->_var['suppliers_exists'] == 1): ?>    
       <!-- 供货商 -->
       <select name="suppliers_id"><option value="0"><?php echo $this->_var['lang']['intro_type']; ?></option><?php echo $this->html_options(array('options'=>$this->_var['suppliers_list_name'],'selected'=>$_GET['suppliers_id'])); ?></select>

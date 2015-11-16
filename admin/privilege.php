@@ -301,7 +301,41 @@ elseif ($_REQUEST['act'] == 'edit')
         $sql = "SELECT agency_name FROM " . $ecs->table('agency') . " WHERE agency_id = '$user_info[agency_id]'";
         $user_info['agency_name'] = $db->getOne($sql);
     }
+    
+    
+    
+    /* 仓库列表 */
+    $sql = "SELECT store_name,id FROM " . $GLOBALS['ecs']->table('storage');
 
+    $storage_list = $GLOBALS['db']->getAll($sql);
+    
+     
+    $sql = "SELECT storage FROM " . $GLOBALS['ecs']->table('admin_user') ."  where user_id = '".$_REQUEST['id']."'";
+    
+    $storage = $GLOBALS['db']->getOne($sql);
+    
+    $storage = explode(",", $storage);
+    
+    
+    
+    foreach ($storage_list as $k => $v)
+    {
+        $storage_list[$k]['check'] = 0;
+        foreach ($storage as $kk => $vv)
+        {
+            if($v['id'] == $vv)
+            {
+                
+                $storage_list[$k]['check'] = 1;
+            }
+            
+        }
+    }
+    
+//     echo "<pre>";
+//     var_dump($storage_list);
+    $smarty->assign('storage_list',     $storage_list);
+    
     /* 模板赋值 */
     $smarty->assign('ur_here',     $_LANG['admin_edit']);
     $smarty->assign('action_link', array('text' => $_LANG['admin_list'], 'href'=>'privilege.php?act=list'));
@@ -421,23 +455,32 @@ elseif ($_REQUEST['act'] == 'update' || $_REQUEST['act'] == 'update_self')
         $role_id = ', role_id = '.$_POST['select_role'].' ';
     }
     //更新管理员信息
+    
+   $storage = isset($_POST['storage'])?implode(',',$_POST['storage']):array();
+    
+   
+    
+    
     if($pwd_modified)
     {
         $sql = "UPDATE " .$ecs->table('admin_user'). " SET ".
                "user_name = '$admin_name', ".
                "email = '$admin_email', ".
-               "ec_salt = '$ec_salt' ".
+               "ec_salt = '$ec_salt', ".
+               "storage = '$storage' ".
                $action_list.
                $role_id.
                $password.
                $nav_list.
+              
                "WHERE user_id = '$admin_id'";
     }
     else
     {
         $sql = "UPDATE " .$ecs->table('admin_user'). " SET ".
                "user_name = '$admin_name', ".
-               "email = '$admin_email' ".
+               "email = '$admin_email', ".
+               "storage = '$storage' ".
                $action_list.
                $role_id.
                $nav_list.

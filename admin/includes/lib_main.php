@@ -841,4 +841,54 @@ function suppliers_list_name()
 
     return $suppliers_name;
 }
+
+
+
+function get_admin_storage($type="storage_list")
+{
+    
+    $sql = " SELECT storage FROM   ". $GLOBALS['ecs']->table("admin_user") . " WHERE user_id ='".$_SESSION['admin_id']."'";
+    
+    $admin_storage = $GLOBALS['db']->getOne($sql);
+    
+    if($type=="storage_list")
+    {
+        $where = " AND id in (".$admin_storage.") ";
+    }
+    elseif($type=="storage_goods_list")
+    {
+        $where = " AND s.id in (".$admin_storage.") ";
+    }
+    elseif($type=="order_list" )
+    {
+        
+        $sql = " select regions  FROM   ". $GLOBALS['ecs']->table("storage") . " WHERE id in (".$admin_storage.")";
+        
+        $admin_regions = $GLOBALS['db']->getCol($sql);
+        
+        $regions = implode(",",$admin_regions);
+        
+        
+        $where =" AND o.district in (".$regions.")";
+        
+    }
+    elseif($type=="delivery_list" )
+    {
+    
+        $sql = " select regions  FROM   ". $GLOBALS['ecs']->table("storage") . " WHERE id in (".$admin_storage.")";
+    
+        $admin_regions = $GLOBALS['db']->getCol($sql);
+    
+        $regions = implode(",",$admin_regions);
+    
+    
+        $where =" AND district in (".$regions.")";
+    
+    }
+    
+    
+    
+    
+    return $where;
+}
 ?>

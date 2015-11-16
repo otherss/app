@@ -169,9 +169,14 @@ function update_goods_stock($goods_id, $value)
 
 function storage_list()
 {
-
+    $type = 'storage_list';
+    
+    
+    
+    $where.= get_admin_storage($type);
+    
 	/* 获活动数据 */
-	$sql = "SELECT store_status,store_name,id FROM " . $GLOBALS['ecs']->table('storage')." where store_status = 1 ";
+	$sql = "SELECT store_status,store_name,id FROM " . $GLOBALS['ecs']->table('storage')." where store_status = 1 ".$where;
 
 	$res = $GLOBALS['db']->getAll($sql);
 	
@@ -244,7 +249,7 @@ function storage_goods_list2($is_delete, $real_goods=1, $conditions = '')
 	{
 // 		$day = getdate();
 // 		$today = local_mktime(23, 59, 59, $day['mon'], $day['mday'], $day['year']);
-
+        
 		$filter['cat_id']           = empty($_REQUEST['cat_id']) ? 0 : intval($_REQUEST['cat_id']);
 		$filter['goods_id']           = empty($_REQUEST['goods_id']) ? 0 : intval($_REQUEST['goods_id']);
 		$filter['storage_id']           = empty($_REQUEST['storage_id']) ? 0 : intval($_REQUEST['storage_id']);
@@ -285,7 +290,9 @@ function storage_goods_list2($is_delete, $real_goods=1, $conditions = '')
 	
 		$where .= " AND (g.is_on_sale = 1)";
 		
-
+		$type = 'storage_goods_list';
+		
+		$where.= get_admin_storage($type);
 	
 
 		$where .= $conditions;

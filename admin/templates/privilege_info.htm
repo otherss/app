@@ -95,6 +95,16 @@
       </table></td>
   </tr> -->
   {/if}
+  
+  <tr>
+  <td class="label">仓库</td>
+  <td >
+  {foreach  from=$storage_list  item=storage } 
+   <input type="checkbox" name="storage[]" value="{$storage.id}"  {if $storage.check ==1} checked {/if}    />{$storage.store_name}
+  {/foreach}
+  </td>
+  </tr>
+  
   <tr>
     <td colspan="2" align="center">
       <input type="submit" value="{$lang.button_submit}" class="button" />&nbsp;&nbsp;&nbsp;

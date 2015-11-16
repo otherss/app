@@ -27,7 +27,7 @@ $modules['02_cat_and_goods']['08_goods_type']       = 'goods_type.php?act=manage
 $modules['02_cat_and_goods']['11_goods_trash']      = 'goods.php?act=trash';        // 商品回收站
 $modules['02_cat_and_goods']['12_batch_pic']        = 'storage.php?act=list';
 $modules['02_cat_and_goods']['13_batch_add']        = 'storage_goods.php?act=list';    // 商品批量上传
-$modules['02_cat_and_goods']['14_goods_export']     = 'area_manage.php?act=list';
+$modules['02_cat_and_goods']['14_goods_export']     = 'area_manage.php?act=list&type=&pid=88';
 // $modules['02_cat_and_goods']['15_batch_edit']       = 'goods_batch.php?act=select'; // 商品批量修改
 // $modules['02_cat_and_goods']['16_goods_script']     = 'gen_goods_script.php?act=setup';
 // $modules['02_cat_and_goods']['17_tag_manage']       = 'tag_manage.php?act=list';
